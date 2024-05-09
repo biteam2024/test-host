@@ -6,15 +6,15 @@ con=connect(host='sql6.freemysqlhosting.net',
             database='sql6705242',
             user='sql6705242',
             password='p8UGc4D67p')
-myapp=Flask(__name__)
-myapp.secret_key= '2b449a7d94480a7a0ec53c7329ed'
+app=Flask(__name__)
+app.secret_key= '2b449a7d94480a7a0ec53c7329ed'
 session={}
-@myapp.route("/home")
-@myapp.route("/")
+@app.route("/home")
+@app.route("/")
 def hello():
     return render_template("form.html")
 
-@myapp.route("/fillform",methods=["GET","POST"])
+@app.route("/fillform",methods=["GET","POST"])
 def myform():
     if request.method=="POST":
         num1=request.form["num1"]
@@ -25,4 +25,4 @@ def myform():
         return render_template("form.html")
 
 if __name__=="__main__":
-    myapp.run(debug=True)
+    app.run(debug=True)
